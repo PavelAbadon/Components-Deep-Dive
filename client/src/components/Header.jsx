@@ -1,9 +1,9 @@
 export default function Header(){
     return(
-        <header className="header">
-            <div className="logo">
-                <span className="course">React Exercise - Components Deep Dive</span>
+        <header class="header">
+            <div class="logo">
+                <span class="course">React Exercise - Components Deep Dive</span>
             </div>
         </header>
-    )
+    );
 }
