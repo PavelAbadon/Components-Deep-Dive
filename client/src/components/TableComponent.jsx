@@ -18,6 +18,11 @@ export default function TableComponent() {
         loadUsers();
     }, []);
 
+    const addUserHandler = () => {
+        console.log('add new user');
+        
+    }
+
     return (
         <div className="table-wrapper">
             <table className="table">
@@ -82,7 +87,7 @@ export default function TableComponent() {
                     
                 </tbody>
             </table>
-            <button className="btn-add btn">Add new user</button>
+            <button className="btn-add btn" onClick={addUserHandler}>Add new user</button>
 
         </div>
     )

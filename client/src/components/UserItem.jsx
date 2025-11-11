@@ -1,3 +1,4 @@
+import { fromIsoDate } from "../utils/datetimeUtils.js";
 
 export default function UserItem({
     _id,
@@ -20,7 +21,7 @@ export default function UserItem({
             <td>{lastName}</td>
             <td>{email}</td>
             <td>{phoneNumber}</td>
-            <td>{createdAt}</td>
+            <td>{fromIsoDate(createdAt)}</td>
             <td className="actions">
                 <button className="btn edit-btn" title="Edit">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
