@@ -4,11 +4,14 @@ import Footer from './components/Footer'
 import Search from './components/Search'
 import TableComponent from './components/TableComponent'
 import Pagination from './components/Pagination'
+import CreateUser from './components/CreateUser'
 
 function App() {
+    const [showCreateUser, setShowCreateUser] = useState(false);
+
     const addUserHandler = () => {
         console.log('add new user');
-        
+        setShowCreateUser (true);
     }
 
    return (
@@ -20,7 +23,8 @@ function App() {
           <TableComponent/>
           <button className="btn-add btn" onClick={addUserHandler}>Add new user</button>               
           <Pagination/>
-        </section>        
+        </section>   
+        {showCreateUser && <CreateUser/>}     
       </main>
       <Footer/>
     </div>
