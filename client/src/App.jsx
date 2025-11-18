@@ -8,11 +8,13 @@ import CreateUser from './components/CreateUser'
 
 function App() {
     const [showCreateUser, setShowCreateUser] = useState(false);
-    //нов ред да видя дали гитхъб десктоп ще проработи
+		
 
     const addUserHandler = () => {
-        console.log('add new user');
         setShowCreateUser (true);
+    }
+    const closeUserModalHandler = () =>{
+        setShowCreateUser (false);
     }
 
    return (
@@ -25,7 +27,7 @@ function App() {
           <button className="btn-add btn" onClick={addUserHandler}>Add new user</button>               
           <Pagination/>
         </section>   
-        {showCreateUser && <CreateUser/>}     
+        {showCreateUser && <CreateUser onClose={closeUserModalHandler}/>}     
       </main>
       <Footer/>
     </div>

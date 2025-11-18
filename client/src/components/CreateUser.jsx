@@ -1,4 +1,6 @@
-export default function CreateUser(){
+export default function CreateUser({
+  onClose
+}){
     return(
          <div class="overlay">
     <div class="backdrop"></div>
@@ -6,7 +8,7 @@ export default function CreateUser(){
       <div class="user-container">
         <header class="headers">
           <h2>Edit User/Add User</h2>
-          <button class="btn close">
+          <button class="btn close" onClick={onClose}>
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
               class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
               <path fill="currentColor"
