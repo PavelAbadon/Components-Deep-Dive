@@ -13,6 +13,24 @@ function App() {
     const addUserHandler = () => {
         setShowCreateUser (true);
     }
+    const addUserSubmitHandler = (event) =>{
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const userData = Object.fromEntries(formData);
+      console.log("Submitting user data:", userData)
+
+      fetch('http://localhost:3030/jsonstore/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(response => response.json())
+            .then(result => console.log(result))
+            
+
+    }
     const closeUserModalHandler = () =>{
         setShowCreateUser (false);
     }
@@ -27,7 +45,12 @@ function App() {
           <button className="btn-add btn" onClick={addUserHandler}>Add new user</button>               
           <Pagination/>
         </section>   
-        {showCreateUser && <CreateUser onClose={closeUserModalHandler}/>}     
+        {showCreateUser && 
+          <CreateUser 
+            onClose={closeUserModalHandler}
+            onSubmit={addUserSubmitHandler}
+            />
+        }     
       </main>
       <Footer/>
     </div>
