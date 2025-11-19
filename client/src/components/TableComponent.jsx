@@ -1,27 +1,11 @@
 import UserItem from "./UserItem";
-import { useState } from "react";
-import { useEffect } from "react";
 
-export default function TableComponent() {
-    const [users, setUser] = useState([]);
+export default function TableComponent({
+    users
+}) {
+   
 
-    useEffect(() => {
-        async function loadUsers() {
-            try {
-                const response = await fetch(`http://localhost:3030/jsonstore/users`);
-                const data = await response.json();
-                setUser(Object.values(data));
-            } catch (err) {
-                console.error('Error loading users:', err);
-            }
-        }
-        loadUsers();
-    }, []);
-
-    const addUserHandler = () => {
-        console.log('add new user');
-        
-    }
+    
 
     return (
         <div className="table-wrapper">
@@ -87,7 +71,7 @@ export default function TableComponent() {
                     
                 </tbody>
             </table>
-            <button className="btn-add btn" onClick={addUserHandler}>Add new user</button>
+            
 
         </div>
     )
